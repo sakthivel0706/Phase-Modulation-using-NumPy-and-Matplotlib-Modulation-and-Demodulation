@@ -1,17 +1,17 @@
 # Phase-Modulation-using-NumPy-and-Matplotlib-Modulation-and-Demodulation
 
-__Aim__:
+# __Aim__:
 
 To implement and analyze phase modulation (PM) using Python's NumPy and Matplotlib libraries. 
 
 
-__Apparatus Required__:
+# __Apparatus Required__:
 
 1. Software: Python with NumPy and Matplotlib libraries
    
 2. Hardware: Personal Computer
    
-__Theory__:
+# __Theory__:
 
 Phase Modulation (PM) is a technique where the phase of the carrier wave is varied in proportion to the 
 instantaneous amplitude of the input signal (message signal). Unlike frequency modulation, where the frequency 
@@ -28,7 +28,7 @@ The general form of a PM signal can be represented as:
 
 
 
-__Algorithm__: 
+# __Algorithm__: 
 
 1. Initialize Parameters:
    
@@ -51,14 +51,53 @@ o Apply the PM modulation formula to obtain the modulated signal.
 5. Plot the Signals:
  
 o Use Matplotlib to plot the message signal, carrier signal, and phase-modulated signal.
+# PROGRAM:
+```
+import numpy as np 
+import matplotlib.pyplot as plt 
+Ac = 24.8
+fc = 720
+Am = 12.4
+fm = 7200 
+fs = 720000 
+t = np.arange(0, 2/fm, 1/fs) 
+Wm = 2 * np.pi * fm 
+Wc = 2 * np.pi * fc 
+Em = Am * np.sin(Wm * t) 
+Ec = Ac * np.sin(Wc * t) 
+Edsbsc = ((Am / 2) * np.cos((Wc - Wm) * t)) - ((Am / 2) * np.cos((Wc + Wm) * t)) 
+plt.figure(figsize=(10, 6)) 
+plt.subplot(3, 1, 1) 
+plt.plot(t, Em) 
+plt.grid() 
+plt.subplot(3, 1, 2) 
+plt.plot(t, Ec)
+plt.grid() 
+plt.subplot(3, 1, 3) 
+plt.plot(t, Edsbsc) 
+plt.grid() 
+plt.tight_layout() 
+plt.show()
+```
 
 
-__Output__:
+# __Output__:
+
+![WhatsApp Image 2025-11-21 at 19 32 11_44b24bae](https://github.com/user-attachments/assets/6fd18114-b12c-4bd3-8919-ad186a09e09b)
 
 
+# TABULATION
+
+![WhatsApp Image 2025-11-23 at 00 45 55_5754a817](https://github.com/user-attachments/assets/66e66550-8690-4fdf-9255-b0f8e3b7dd2a)
 
 
-__Result__:
+# CALCULATION
+
+![WhatsApp Image 2025-11-23 at 00 46 11_3784a1e0](https://github.com/user-attachments/assets/f69b33b9-d50f-4296-9abe-ec90ec4c39fb)
+
+
+# __Result__:
+The message signal, carrier signal, and phase-modulated (PM) signal will be displayed in separate plots. The modulated signal will show phase variations corresponding to the amplitude of the message signal.
 
 
 
